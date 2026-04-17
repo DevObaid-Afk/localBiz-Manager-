@@ -15,7 +15,7 @@ export function AuthProvider({ children }) {
     }
 
     api
-      .get("/profile/me")
+      .get("/api/profile/me")
       .then((data) => setUser(data.user))
       .catch(() => {
         localStorage.removeItem("guessit-token");
@@ -30,13 +30,13 @@ export function AuthProvider({ children }) {
       loading,
       setUser,
       async login(credentials) {
-        const data = await api.post("/auth/login", credentials);
+        const data = await api.post("/api/auth/login", credentials);
         localStorage.setItem("guessit-token", data.token);
         setUser(data.user);
         return data;
       },
       async signup(payload) {
-        const data = await api.post("/auth/signup", payload);
+        const data = await api.post("/api/auth/signup", payload);
         localStorage.setItem("guessit-token", data.token);
         setUser(data.user);
         return data;
