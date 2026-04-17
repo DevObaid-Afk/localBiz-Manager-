@@ -15,7 +15,7 @@ function LeaderboardPage() {
   useEffect(() => {
     setLoading(true);
     api
-      .get(`/leaderboard?range=${range}`)
+      .get(`/api/leaderboard?range=${range}`)
       .then((response) => setData(response.entries))
       .catch((error) => toast.push(error.message, "error"))
       .finally(() => setLoading(false));

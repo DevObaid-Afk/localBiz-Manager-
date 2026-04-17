@@ -15,7 +15,7 @@ function GameplayPage() {
 
   useEffect(() => {
     api
-      .get("/game/active")
+      .get("/api/game/active")
       .then((data) => setSession(data.session))
       .catch((error) => toast.push(error.message, "error"))
       .finally(() => setLoading(false));

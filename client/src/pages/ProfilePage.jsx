@@ -10,7 +10,7 @@ function ProfilePage() {
 
   useEffect(() => {
     api
-      .get("/profile/me")
+      .get("/api/profile/me")
       .then((data) => setProfile(data))
       .catch((error) => toast.push(error.message, "error"))
       .finally(() => setLoading(false));
