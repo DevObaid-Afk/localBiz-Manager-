@@ -412,6 +412,9 @@ export function LandingPage() {
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-emerald-700 dark:text-emerald-300">Contact</p>
             <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">hello@localbiz.com</p>
+            <Link to="/developer" className="mt-2 inline-block text-xs text-slate-500 transition hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200">
+              Developer
+            </Link>
             <p className="mt-8 text-sm text-slate-500 dark:text-slate-400">{"\u00A9"} 2026 LocalBiz Manager</p>
           </div>
         </div>

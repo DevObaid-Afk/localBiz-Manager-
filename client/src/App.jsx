@@ -4,6 +4,7 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AuthPage } from "./pages/AuthPage";
 import { BillingPage } from "./pages/BillingPage";
 import { DashboardPage } from "./pages/DashboardPage";
+import { DeveloperPage } from "./pages/DeveloperPage";
 import { LandingPage } from "./pages/LandingPage";
 import { ProductsPage } from "./pages/ProductsPage";
 import { SalesPage } from "./pages/SalesPage";
@@ -12,6 +13,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/developer" element={<DeveloperPage />} />
       <Route path="/auth" element={<AuthPage />} />
       <Route element={<ProtectedRoute />}>
         <Route element={<AppLayout />}>
