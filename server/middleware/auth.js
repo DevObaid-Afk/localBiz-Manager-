@@ -1,24 +1,20 @@
 import jwt from "jsonwebtoken";
-import User from "../models/User.js";
+import { createError } from "./error.js";
 
-export async function requireAuth(req, res, next) {
+export function protect(req, _res, next) {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return next(createError(401, "Authentication required."));
+  }
+
+  const token = authHeader.split(" ")[1];
+
   try {
-    const authorization = req.headers.authorization;
-    if (!authorization?.startsWith("Bearer ")) {
-      return res.status(401).json({ message: "Authentication required." });
-    }
-
-    const token = authorization.replace("Bearer ", "");
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(payload.userId);
-
-    if (!user) {
-      return res.status(401).json({ message: "User not found." });
-    }
-
-    req.user = user;
-    return next();
-  } catch (_error) {
-    return res.status(401).json({ message: "Invalid session token." });
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = { id: decoded.userId };
+    next();
+  } catch {
+    next(createError(401, "Invalid or expired token."));
   }
 }

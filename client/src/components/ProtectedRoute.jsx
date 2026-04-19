@@ -1,24 +1,18 @@
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { LoadingScreen } from "./LoadingSpinner";
 
-function ProtectedRoute({ children }) {
-  const { user, loading } = useAuth();
+export function ProtectedRoute() {
+  const { isAuthenticated, loading } = useAuth();
   const location = useLocation();
 
   if (loading) {
-    return (
-      <div className="center-screen">
-        <div className="loader-ring" />
-        <p>Syncing your challenge vault...</p>
-      </div>
-    );
+    return <LoadingScreen label="Restoring your workspace..." />;
   }
 
-  if (!user) {
-    return <Navigate to="/login" replace state={{ from: location.pathname }} />;
+  if (!isAuthenticated) {
+    return <Navigate to="/auth" replace state={{ from: location }} />;
   }
 
-  return children;
+  return <Outlet />;
 }
-
-export default ProtectedRoute;
