@@ -14,7 +14,7 @@ export default {
           600: "#3d6e5a",
           700: "#305848",
           800: "#25433a",
-          900: "#1b2f29"
+          900: "#1b2f29",
         },
         accent: {
           50: "#fff8ef",
@@ -26,22 +26,22 @@ export default {
           600: "#c56d13",
           700: "#9d540f",
           800: "#76400f",
-          900: "#4f2d0d"
-        }
+          900: "#4f2d0d",
+        },
       },
       fontFamily: {
         sans: ["'Plus Jakarta Sans'", "system-ui", "sans-serif"],
-        display: ["'Fraunces'", "serif"]
+        display: ["'Fraunces'", "serif"],
       },
       boxShadow: {
         soft: "0 20px 60px rgba(25, 42, 36, 0.12)",
-        panel: "0 12px 36px rgba(30, 48, 43, 0.08)"
+        panel: "0 12px 36px rgba(30, 48, 43, 0.08)",
       },
       backgroundImage: {
-        aura: "radial-gradient(circle at top left, rgba(107, 168, 142, 0.18), transparent 34%), radial-gradient(circle at bottom right, rgba(248, 169, 74, 0.18), transparent 32%)"
-      }
-    }
+        aura: "radial-gradient(circle at top left, rgba(107, 168, 142, 0.18), transparent 34%), radial-gradient(circle at bottom right, rgba(248, 169, 74, 0.18), transparent 32%)",
+      },
+    },
   },
-  darkMode: 'class',
-  plugins: []
+  darkMode: "class",
+  plugins: [],
 };
