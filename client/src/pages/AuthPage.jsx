@@ -17,7 +17,7 @@ export function AuthPage() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const destination = location.state?.from?.pathname || "/";
+  const destination = location.state?.from?.pathname || "/dashboard";
 
   useEffect(() => {
     if (isAuthenticated) {
